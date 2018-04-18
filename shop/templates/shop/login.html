@@ -1,0 +1,36 @@
+<html>
+    <head>
+    <title>SUPERCTRL</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'shop/w3.css' %}">
+    <link rel="stylesheet" href="text/css" href="shop/static/shop/fontawesome-all.min.css">
+    <link rel="stylesheet" href="text/css" href="shop/static/shop/css/bootstrap-all.min.css">
+    <link rel="stylesheet" href="text/css" href="shop/static/shop/js/bootstrap.js">
+    </head>
+    
+    <body style="background-image:url('/media/background3.jpg')">
+            <div class="w3-bar w3-white w3-border w3-padding w3-container w3-card">
+                    <button  class="w3-bar-item w3-button w3-round w3-mobile w3-red w3-card w3-large" onclick="document.getElementById('mySidebar').style.display='block'"><b><strong>SUPERCTRL</strong></b></b></button>
+                    
+                    
+                    <button class="w3-bar-item w3-button w3-green w3-mobile w3-right w3-round w3-card w3-large">Go</button>
+                    <input type="text" class="w3-bar-item w3-input w3-round w3-card w3-white w3-large w3-mobile w3-right" placeholder="Search.." name="search">
+                    
+                    
+                    
+                  </div>    
+
+
+{% block User %}
+    <div class="w3-center w3-white w3-margin-top w3-card w3-round" style="width:50%;margin:0 auto">
+        <form method="POST" style="width:80%;margin:0 auto" action="{% url 'login' %}">
+            {% csrf_token %}
+             <h1 class="w3-bar w3-grey w3-round " style="width:100%">Login</h1> <br> <hr>
+
+           {{form.as_p}}
+            <hr>
+               <button class="w3-button w3-round w3-red w3-margin w3-xlarge" type="submit" value="submit" style="width:50%">Login</button>
+        </form>
+    </div>
+{% endblock %}
+</body>

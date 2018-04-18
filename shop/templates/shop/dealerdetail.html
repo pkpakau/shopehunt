@@ -1,0 +1,19 @@
+{% extends 'shop/base.html' %}
+
+
+
+{% block Dealer %}
+    <div class="w3-container w3-card-2 w3-margin-top w3-white w3-round" style="width:40%;margin:0 auto">
+        <button class=" w3-button w3-grey w3-margin w3-xlarge w3-round" style="width:95%">Employee Details</button>
+            <div class="w3-ul  w3-margin">
+                    <li class="w3-xlarge"><b>Name: </b>{{dealer.name}}</li>
+                    <li class="w3-xlarge"><b>Contact: </b>{{dealer.contact}}</li>
+                    <li class="w3-xlarge"><b>Address: </b>{{dealer.address}}</li>
+                    <li class="w3-xlarge"><b>Website: </b><a href="https://{{dealer.website}}">{{dealer.website}}</a></li>
+                    <hr>
+                    <a href="{% url 'dealeredit' dealer.id %}"><button class="w3-button w3-red w3-round w3-left w3-margin w3-left w3-large"><b>edit</b></button></a> 
+                <a href="{% url 'dealerdelete' dealer.id %}"><button class="w3-button w3-red w3-round w3-right w3-margin w3-right w3-large"><b>delete</b></button></a> 
+    </div>
+{% endblock Dealer %}
+    
+    

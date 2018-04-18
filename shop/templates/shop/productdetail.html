@@ -1,0 +1,23 @@
+{% extends 'shop/base.html' %}
+
+
+
+{% block product %}
+    <div class="w3-container w3-card-2 w3-margin-top w3-white" style="width:40%;margin:0 auto">
+        <button class=" w3-button w3-grey w3-margin w3-xlarge w3-round" style="width:95%">Product Details</button>
+            <div class="w3-ul  w3-margin">
+                    <li class="w3-xlarge"><b>Product Id: </b>{{product.productid}}</li>
+                    <li class="w3-xlarge"><b>Name: </b>{{product.name}}</li>
+                    <li class="w3-xlarge"><b>Description: </b>{{product.description}}</li>
+                    <li class="w3-xlarge"><b>Price: </b>{{product.price}}</li>
+                    <li class="w3-xlarge"><b>Stock: </b>{{product.stock}}</li>
+                    <li class="w3-xlarge"><b>Dealer: </b>{{product.dealer}}</li>
+                    <img src="{{product.image.url}}" alt="Avatar" style="width:100%;opacity:0.85;height:45%">
+                   
+                    
+                    <a href="{% url 'productedit' product.id %}"><button class="w3-button w3-red w3-round w3-left w3-margin w3-left w3-large"><b>edit</b></button></a> 
+                <a href="{% url 'productdelete' product.id %}"><button class="w3-button w3-red w3-round w3-right w3-margin w3-right w3-large"><b>delete</b></button></a> 
+    </div>
+{% endblock product %}
+    
+    

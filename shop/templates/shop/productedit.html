@@ -1,0 +1,28 @@
+{% extends 'shop/base.html' %}
+
+
+{% block product %}
+<div class="w3-container w3-card w3-margin-top w3-white" style="width:50%;margin:0 auto">
+        <form action="{% url 'productupdate' product.id %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <h1 class="w3-center w3-light-grey">product Info Update</h1>
+            <label>ProductId: </label>
+            <input type="text" name="productid" class="w3-input" value="{{product.productid}}" required> <br>
+            <label>Name: </label>
+            <input type="text" name="name"  class="w3-input"  value="{{product.name}}" required> <br>
+            <label>Description: </label>
+            <input type="text" name="description"  class="w3-input" value="{{product.description}}" required> <br>
+            <label>Price: </label>
+            <input type="text" name="price"  class="w3-input" value="{{product.price}}" required> <br>
+            <label>Stock: </label>
+            <input type="text" name="stock"  class="w3-input" value="{{product.stock}}" required> <br>
+            <label>Image: </label>
+            <input type="file" name="image" value="{{product.image}}"> <br>
+            <label>Dealer: </label>
+            <input type="text" name="dealer"value="{{product.dealer}}"> <br>
+            <a href="{% url 'products' %}"><button class="w3-button w3-red w3-round w3-left w3-margin w3-large"><strong>Back</strong></button></a>
+            <button class="w3-button w3-red w3-round w3-right w3-margin w3-large" type="submit"><strong>Update</strong></button>
+        </form>
+    </div> 
+{% endblock product %}
+    

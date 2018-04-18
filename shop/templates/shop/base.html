@@ -1,0 +1,60 @@
+<html>
+    <head>
+    <title>SUPERCTRL</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'shop/w3.css' %}">
+    <link rel="stylesheet" href="text/css" href="{% static 'shop/bootstrap.css' %}">
+    </head>
+    
+    <body style="background-image:url('/media/background3.jpg')">
+            <div class="w3-bar w3-white w3-border w3-padding w3-container w3-card">
+                    <button  class="w3-bar-item w3-button w3-round w3-mobile w3-red w3-card w3-large" onclick="document.getElementById('mySidebar').style.display='block'"><b><strong>SUPERCTRL</strong></b></b></button>
+
+                    <a href="http://localhost:8000/users/logout/"><button class="w3-button w3-red w3-right w3-round w3-margin-left w3-large"><strong>logout</strong></button></a>
+                    <form action="{% url 'search'%}" method="POST">
+                        {% csrf_token %}
+                    <button class="w3-bar-item w3-button w3-green w3-mobile w3-right w3-round w3-card w3-large">Go</button>
+                    <input type="text" class="w3-bar-item w3-input w3-round w3-card w3-white w3-large w3-mobile w3-right" placeholder="Search.." name="search">
+                    </form>
+                    
+                    
+            </div>    
+
+            <!-- Sidebar -->
+        <div class="w3-sidebar w3-bar-block w3-border-right w3-animate-left" style="display:none;background-image:url('/media/sidebar.png');width:25%" id="mySidebar">
+        <button onclick="document.getElementById('mySidebar').style.display = 'None'" class="w3-bar-item w3-large w3-card ">Close &times;</button>
+        <a href="{% url 'dealers' %}" class="w3-bar-item w3-button w3-round w3-mobile w3-right w3-large">All Dealers</a>
+        <a href="{% url 'dealeradd' %}" class="w3-bar-item w3-button w3-round w3-mobile w3-right w3-large">Add Dealer</a>
+        <a href="{% url 'products' %}" class="w3-bar-item w3-button w3-round w3-mobile w3-right w3-large">All Products</a>
+        <a href="{% url 'productadd' %}" class="w3-bar-item w3-button w3-round w3-mobile w3-right w3-large">Add Product</a>
+        <a href="{% url 'orders' %}" class="w3-bar-item w3-button w3-round w3-mobile w3-right w3-large">All Orders</a>
+        <a href="{% url 'orderadd' %}" class="w3-bar-item w3-button w3-round w3-mobile w3-right w3-large">Add Order</a>
+        <a href="{% url 'employees' %}" class="w3-bar-item w3-button w3-round w3-mobile w3-right w3-large">All Employees</a>
+        <a href="{% url 'employeeadd' %}" class="w3-bar-item w3-button w3-round w3-mobile w3-right w3-large">Add Employee</a>
+        <a href="/admin" class="w3-bar-item w3-button w3-round w3-mobile w3-right w3-large">Admin</a>
+
+    </div>
+    
+    
+    {% block Dealer %}
+        
+    {% endblock Dealer %}
+       
+    
+    {% block product %}
+        
+    {% endblock product %}
+
+    
+    {% block order %}
+        
+    {% endblock order %}
+        
+        
+        {% block employee %}
+            
+        {% endblock employee %}
+            
+</body>
+
+    </html>

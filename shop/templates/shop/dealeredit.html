@@ -1,0 +1,22 @@
+{% extends 'shop/base.html' %}
+
+
+{% block Dealer %}
+<div class="w3-container w3-card w3-margin-top w3-white" style="width:50%;margin:0 auto">
+        <form action="{% url 'dealerupdate' dealer.id %}" method="POST">
+            {% csrf_token %}
+            <h1 class="w3-center w3-light-grey">Dealer Info Update</h1>
+            <label>Name: </label>
+            <input type="text" name="name" class="w3-input" value="{{dealer.name}}" required> <br>
+            <label>Contact: </label>
+            <input type="text" name="contact"  class="w3-input"  value="{{dealer.contact}}" required> <br>
+            <label>Address: </label>
+            <input type="text" name="address"  class="w3-input" value="{{dealer.address}}" required> <br>
+            <label>Website: </label>
+            <input type="text" name="website"  class="w3-input" value="{{dealer.website}}" required> <br>
+            <a href="{% url 'dealers' %}"><button class="w3-button w3-red w3-round w3-left w3-margin w3-large"><strong>Back</strong></button></a>
+            <button class="w3-button w3-red w3-round w3-right w3-margin w3-large" type="submit"><strong>Update</strong></button>
+        </form>
+    </div> 
+{% endblock Dealer %}
+    

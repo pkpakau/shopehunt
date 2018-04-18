@@ -1,0 +1,84 @@
+{% extends 'shop/base.html' %}
+
+
+{% block employee %}
+<div class="w3-row w3-container w3-bar w3-responsive ">
+
+<div class=" w3-card w3-large w3-margin w3-round-large  w3-col w3-bar-item w3-animate-left w3-white" style="width:25%">
+        <button class="w3-animate-top w3-button w3-center w3-xlarge w3-round w3-green w3-bar"><b>Results in Employee</b></button>
+
+    <div class="w3-ul w3-responsive">
+
+    <li>{% for i in  employees%}
+        <a href="{% url 'employeedetail' i.id %}">{{i.name}}</a>
+        {{i.mobile}}
+        {{i.address}} <hr>
+        {% endfor %} 
+        </li>
+    
+    </div>
+    <button class="w3-animate-top w3-button w3-center w3-xlarge w3-round w3-green w3-bar"><b>Results in Product</b></button>
+
+    <div class="w3-ul w3-responsive">
+
+    <li>{% for i in  products%}
+        <a href="{% url 'productdetail' i.id %}">{{i.name}}</a>
+        {{i.productid}}
+        {{i.name}} <hr>
+        {% endfor %} 
+        </li>
+    
+    </div>
+</div>
+
+
+<div class="w3-col w3-round-xlarge w3-margin w3-card-2  w3-bar-item w3-responsive w3-grey w3-white" style="width:37%">
+        <button class="w3-animate-top w3-button w3-center w3-xlarge w3-round w3-green w3-bar"><b>Search Anything...</b></button>
+    <div class="w3-margin-top">
+        <img src="/media/search.gif" style="width:100%"> <br>
+        <div class="w3-center w3-margin w3-card-4">
+            <form action="{% url 'search' %}" method="POST">
+                {% csrf_token %}
+                <input type="text" class="w3-bar-item w3-border w3-margin-left w3-input w3-round w3-center w3-card w3-center  w3-card-4 w3-white w3-large w3-mobile" style="margin-top:7%;margin-bottom:4%;width:80%" placeholder="Search.." name="search">
+                <button class="w3-bar-item w3-btn w3-green w3-right w3-mobile w3-round w3-center w3-card w3-large w3-center w3-card-4" style="margin-top:7%;margin-bottom:4%">Go<i class="fa fa-phone"></i></button>
+            
+            </form>
+        </div>
+       
+    </div>
+</div>
+
+<div class=" w3-card w3-large w3-margin w3-round-large w3-rest w3-bar-item w3-animate-right w3-white">
+        <button class="w3-animate-top w3-button w3-center w3-xlarge w3-round w3-green w3-bar"><b>Results in Order</b></button>
+    
+    <div class="w3-ul w3-responsive">
+    
+        <li>
+            {% for i in orders %}
+        <a href="{% url 'orderdetail' i.id%}">{{i.orderid}}</a>
+        {{i.name}}
+        {{i.orderby}}
+        {{i.orderstatus}} <hr>
+        {% endfor %} 
+        </li>
+    
+    </div>
+    <button class="w3-animate-top w3-button w3-center w3-xlarge w3-round w3-green w3-bar"><b>Results in Dealers</b></button>
+
+    <div class="w3-ul w3-responsive">
+
+    <li>{% for i in  dealers%}
+        <a href="{% url 'dealerdetail' i.id %}">{{i.name}}</a>
+        
+        <a href="http://{{i.website}}">{{i.website}}</a> <hr>
+        {% endfor %} 
+        </li>
+    
+    </div>
+    </div>
+ 
+
+</div>
+
+{% endblock employee %} 
+    

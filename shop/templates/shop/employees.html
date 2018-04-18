@@ -1,0 +1,31 @@
+{% extends 'shop/base.html' %}
+
+
+{% block employee %}
+<div class="w3-row">
+        <h1 class="w3-button w3-center w3-light-grey w3-container w3-margin w3-col w3-container" style="width:80%">All Employees</h1>
+        <a href="{% url 'employeeadd' %}"><button class="w3-btn w3-rest w3-red w3-round-xlarge w3-margin w3-large w3-card"><strong>Add Employee +</strong></button></a>
+</div>
+    <div class="w3-row">
+            {% for employee in employees  %}
+        <div class="w3-col w3-quarter">
+            
+
+            <div class="w3-card-4 w3-white w3-margin" style="width:92%;max-width:300px;">
+                <img src="{{employee.image.url}}" alt="Avatar" style="width:100%;opacity:0.85;height:30%">
+                <div class="w3-container">
+                <h3><b><a href="{% url 'employeedetail' employee.id %}">{{employee.name}}</a></b></h3>    
+                <h6>{{employee.contact}} <br> {{employee.address}}</b></h6>
+                <h5><b>{{employee.gender}}</b></h5>
+                <h6><b>Designation:  </b>{{employee.desg}} <br><b>  Qualifications:  </b>{{employee.qual}} <br><b>Experience:  </b>{{employee.experience}}</h6>   
+                <a href="{% url 'employeeedit' employee.id %}"><button class="w3-button w3-red w3-round w3-left w3-margin-bottom"><b>edit</b></button></a> 
+                <a href="{% url 'employeedelete' employee.id %}"><button class="w3-button w3-red w3-round w3-right w3-margin-bottom"><b>delete</b></button></a> 
+                </div>
+              </div>
+              
+                
+        </div>
+        {% endfor %}
+    </div>
+{% endblock employee %}
+    

@@ -1,0 +1,24 @@
+{% extends 'shop/base.html' %}
+
+
+
+{% block order %}
+    <div class="w3-container w3-card-2 w3-margin-top w3-white w3-round" style="width:40%;margin:0 auto">
+        <button class=" w3-button w3-grey w3-margin w3-xlarge w3-round" style="width:95%"><strong>Order Details</strong></button> <hr>
+            <div class="w3-ul  w3-margin">
+                    <li class="w3-large"><b>Product Id: </b>{{order.orderid}}</li>
+                    <li class="w3-large"><b>Name: </b>{{order.name}}</li>
+                    <li class="w3-large"><b>Contact: </b>{{order.contact}}</li>
+                    <li class="w3-large"><b>Order By: </b>{{order.orderby}}</li>
+                    <li class="w3-large"><b>Address: </b>{{order.address}}</li>
+                    <li class="w3-large"><b>Delivery Date: </b>{{order.delivery_date}}</li>
+                    <li class="w3-large"><b>Status: </b>{{order.status}}</li>
+                    <li class="w3-large"><b>Payment Mode: </b>{{order.paymentmode}}</li>
+                    <li class="w3-large"><b>Price: </b>{{order.price}}</li>
+                    <hr>
+                    <a href="{% url 'orderedit' order.id %}"><button class="w3-button w3-red w3-round w3-left w3-margin w3-left w3-large"><b>edit</b></button></a> 
+                <a href="{% url 'orderdelete' order.id %}"><button class="w3-button w3-red w3-round w3-right w3-margin w3-right w3-large"><b>delete</b></button></a> 
+    </div>
+{% endblock order %}
+    
+    

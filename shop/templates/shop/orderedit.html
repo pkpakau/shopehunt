@@ -1,0 +1,32 @@
+{% extends 'shop/base.html' %}
+
+
+{% block order %}
+<div class="w3-container w3-card w3-margin-top w3-white" style="width:50%;margin:0 auto">
+        <form action="{% url 'orderupdate' order.id %}" method="POST">
+            {% csrf_token %}
+            <h1 class="w3-center w3-light-grey">order Info Update</h1>
+            <label>Name: </label>
+            <input type="text" name="orderid" class="w3-input" value="{{order.orderid}}" required> <br>
+            <label>Name: </label>
+            <input type="text" name="name" class="w3-input" value="{{order.name}}" required> <br>
+            <label>Contact: </label>
+            <input type="text" name="contact"  class="w3-input"  value="{{order.contact}}" required> <br>
+            <label>Address: </label>
+            <input type="text" name="address"  class="w3-input" value="{{order.address}}" required> <br>
+            <label>Order By: </label>
+            <input type="text" name="orderby"  class="w3-input" value="{{order.orderby}}" required> <br>
+            <label>Delivery Date: </label>
+            <input type="date" name="delivery_date" class="w3-input" value="{{order.delivery_date}}"  required> <br>
+            <label>Status: </label>
+            <input type="text" name="status" class="w3-input" value="{{order.status}}" required> <br>
+            <label>Payment Mode: </label>
+            <input type="text" name="paymentmode" class="w3-input" value="{{order.paymentmode}}" required> <br>
+            <label>Total: </label>
+            <input type="text" name="total" class="w3-input" value="{{order.price}}" required> <br>
+            <a href="{% url 'orders' %}"><button class="w3-button w3-red w3-round w3-left w3-margin w3-large"><strong>Back</strong></button></a>
+            <button class="w3-button w3-red w3-round w3-right w3-margin w3-large" type="submit"><strong>Update</strong></button>
+        </form>
+    </div> 
+{% endblock order %}
+    

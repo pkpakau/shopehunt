@@ -1,0 +1,17 @@
+{% extends 'shop/base.html' %}
+
+
+{% block employee %}
+<div class="w3-card-4 w3-white w3-margin-top " style="width:30%;margin:0 auto">
+        <img src="{{employee.image.url}}" alt="Avatar" style="width:100%;opacity:0.85;height:45%">
+        <div class="w3-container">
+        <h3><b>{{employee.name}}</b></h3>    
+        <h6>{{employee.contact}} <br> {{employee.address}}</b></h6>
+        <h5><b>{{employee.gender}}</b></h5>
+        <h6><b>Designation:  </b>{{employee.desg}} <br><b>  Qualifications:  </b>{{employee.qual}} <br><b>Experience:  </b>{{employee.experience}}</h6>   
+        <a href="{% url 'employeeedit' employee.id %}"><button class="w3-button w3-red w3-round w3-left w3-margin-bottom"><b>edit</b></button></a> 
+        <a href="{% url 'employeedelete' employee.id %}"><button class="w3-button w3-red w3-round w3-right w3-margin-bottom"><b>delete</b></button></a> 
+        </div>
+      </div>
+{% endblock employee %}
+    

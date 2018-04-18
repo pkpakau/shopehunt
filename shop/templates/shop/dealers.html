@@ -1,0 +1,37 @@
+{% extends 'shop/base.html' %}
+
+
+{% block Dealer %}
+<div class="w3-row ">
+        <h1 class="w3-button w3-center w3-light-grey w3-container w3-margin w3-col w3-container" style="width:80%">All Dealers</h1>
+        <a href="{% url 'dealeradd' %}"><button class="w3-btn w3-rest w3-red w3-round-xlarge w3-margin w3-large w3-card"><strong>Add Dealer +</strong></button></a>
+</div>
+
+<div class="w3-container w3-margin w3-responsive" style="margin:0 auto">
+        <table class="w3-table w3-striped w3-card w3-round  w3-white ">
+            <tr class="w3-green w3-xlarge w3-bold">
+                <td>Name</td>
+                <td>Contact</td>
+                <td>Address</td>
+                <td>Website</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            
+            {% for dealer in dealers  %}
+                <tr class="w3-margin">
+                    <td><a href="{% url 'dealerdetail' dealer.id %}">{{dealer.name}}</a></td>
+                    <td>{{dealer.contact}}</td>
+                    <td>{{dealer.address}}</td>
+                    <td><a href="http://{{dealer.website}}">{{dealer.website}}</a></td>
+                    <td><a href="{% url 'dealerproducts' dealer.id %}"><button class="w3-button w3-red w3-round-xxlarge"><strong>products</strong></button></a></td>
+                    <td><a href="{% url 'dealeredit' dealer.id %}"><button class="w3-button w3-red w3-round-xxlarge"><strong>edit</strong></button></a></td>
+                    <td><a href="{% url 'dealerdelete' dealer.id %}"><button class="w3-button w3-red w3-round-xxlarge"><strong>delete</strong></button></a></td>
+                </tr>
+            {% endfor %}
+                
+        </table>
+{% endblock Dealer %}
+    
+</div>
